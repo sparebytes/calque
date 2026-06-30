@@ -1,0 +1,16 @@
+{
+  "id": "pnpm-cache",
+  "version": "1.0.0",
+  "name": "pnpm Cache",
+  "description": "Caches pnpm packages.",
+  "mounts": [
+    {
+      "type": "volume",
+      "source": "pnpm-cache-${devcontainerId}",
+      "target": "/pnpm/store"
+    }
+  ],
+  "containerEnv": {
+    "PNPM_HOME": "/pnpm"
+  }
+}

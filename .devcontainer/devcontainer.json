@@ -1,0 +1,44 @@
+{
+  "name": "image-overlay-tool",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "remoteUser": "vscode",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
+      "version": "latest",
+      "moby": true
+    },
+    "ghcr.io/devcontainers-extra/features/mise:1": {},
+    "./features/mise-cache": {},
+    "./features/pnpm-cache": {},
+    "./features/claude": {}
+  },
+  "mounts": [
+    {
+      "source": "my-setup-${localWorkspaceFolderBasename}-node-modules",
+      "target": "${containerWorkspaceFolder}/node_modules",
+      "type": "volume"
+    }
+  ],
+  "containerEnv": {
+    "MISE_TRUSTED_CONFIG_PATHS": "/workspaces",
+    "MISE_GLOBAL_CONFIG_FILE": "${containerWorkspaceFolder}/.devcontainer/.mise.toml",
+    "IN_DEVCONTAINER": "true"
+  },
+  "onCreateCommand": [".devcontainer/on-create.sh"],
+  "updateContentCommand": [".devcontainer/update-content.sh"],
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "claudeCode.allowDangerouslySkipPermissions": true
+      },
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "bradlc.vscode-tailwindcss",
+        "ms-vscode.vscode-typescript-next",
+        "Anthropic.claude-code"
+      ]
+    }
+  }
+}

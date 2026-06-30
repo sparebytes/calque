@@ -1,0 +1,62 @@
+# Misc files
+**/*.log
+**/.DS_Store
+**/Thumbs.db
+**/.history
+
+# My files
+**/*.my
+**/.my.*
+**/*.my.*
+
+# Icons
+/assets/icon.*
+
+# Generated files
+**/dist
+**/out
+**/build
+**/.cache
+**/_generated
+**/*.gen.*
+**/*.tsbuildinfo
+**/.vitest-reports
+**/.angular
+**/*.vitest-temp.*
+**/dist
+**/dist-ssr
+/tooling/docker/dumps
+/tooling/docker/*-dumps
+
+# Local files
+**/*.local.*
+
+# Vite
+.vite
+
+# Node / NPM / Yarn / PNPM
+**/.pnpm-store
+**/node_modules
+**/.npm
+**/.yarn/*
+!**/.yarn/patches
+!**/.yarn/plugins
+!**/.yarn/releases
+!**/.yarn/sdks
+!**/.yarn/versions
+**/.pnp.*
+
+# Environment
+**/.env.local
+**/.env.*.local
+**/env.local.*
+**/env.*.local.*
+
+# IDE - VSCode
+**/.vscode/*
+!**/.vscode/settings.json
+!**/.vscode/tasks.json
+!**/.vscode/launch.json
+!**/.vscode/extensions.json
+**/.vscode-searches
+

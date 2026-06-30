@@ -1,0 +1,17 @@
+{
+  "id": "mise-cache",
+  "version": "1.0.0",
+  "name": "Mise Cache",
+  "description": "Caches Mise installs in a named volume scoped per devcontainer and activates Mise for Bash, ZSH, and Fish shells.",
+  "mounts": [
+    {
+      "type": "volume",
+      "source": "mise-data-${devcontainerId}",
+      "target": "/var/cache/mise"
+    }
+  ],
+  "containerEnv": {
+    "MISE_DATA_DIR": "/var/cache/mise"
+  },
+  "installsAfter": ["ghcr.io/devcontainers-extra/features/mise"]
+}

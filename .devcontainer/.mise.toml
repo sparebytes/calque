@@ -1,0 +1,7 @@
+[tools]
+claude = "latest"
+node = "24"
+pnpm = "latest"
+
+[settings]
+minimum_release_age_excludes = ["claude", "node", "pnpm"]

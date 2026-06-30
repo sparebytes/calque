@@ -1,0 +1,11 @@
+{
+  "id": "claude",
+  "version": "1.0.0",
+  "name": "Claude Onboarding",
+  "description": "Marks Claude Code onboarding as complete by writing ~/.claude.json",
+  "customizations": {
+    "vscode": {
+      "extensions": ["Anthropic.claude-code"]
+    }
+  }
+}
