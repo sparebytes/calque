@@ -15,17 +15,26 @@
     "check:typescript": "tsc --noEmit",
     "check": "pnpm run lint && pnpm run format:check && pnpm run check:typescript"
   },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  },
   "devDependencies": {
     "@electron-forge/cli": "^7.11.2",
     "@electron-forge/maker-deb": "^7.11.2",
     "@electron-forge/maker-zip": "^7.11.2",
     "@electron-forge/plugin-vite": "^7.11.2",
+    "@tailwindcss/vite": "^4.3.1",
     "@types/node": "^24.0.0",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
     "electron": "^42.5.1",
     "oxfmt": "^0.56.0",
     "oxlint": "^1.71.0",
     "png2icons": "^2.0.1",
     "sharp": "^0.35.2",
+    "tailwindcss": "^4.3.1",
     "typescript": "7.0.1-rc",
     "vite": "^8.1.0"
   },

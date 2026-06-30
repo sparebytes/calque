@@ -1,8 +1,16 @@
 import { defineConfig } from "vite";
+import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 
 export default defineConfig({
   root: path.join(__dirname, "src/renderer"),
+  plugins: [tailwindcss()],
+  // Use esbuild's built-in automatic JSX transform so we don't need a separate
+  // React Vite plugin — keeps the dependency footprint minimal.
+  esbuild: {
+    jsx: "automatic",
+    jsxImportSource: "react",
+  },
   build: {
     // `root` is src/renderer, so the forge vite plugin's relative outDir
     // (".vite/renderer/main_window") would resolve under it
