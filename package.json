@@ -11,21 +11,23 @@
     "make-icons": "node scripts/make-icons.mjs",
     "format": "oxfmt",
     "format:check": "oxfmt --check",
-    "lint": "oxlint"
+    "lint": "oxlint",
+    "check:typescript": "tsc --noEmit",
+    "check": "pnpm run lint && pnpm run format:check && pnpm run check:typescript"
   },
   "devDependencies": {
-    "@electron-forge/cli": "^7.8.0",
-    "@electron-forge/maker-deb": "^7.8.0",
-    "@electron-forge/maker-zip": "^7.8.0",
-    "@electron-forge/plugin-vite": "^7.8.0",
-    "@types/node": "^22.0.0",
-    "electron": "^33.0.0",
+    "@electron-forge/cli": "^7.11.2",
+    "@electron-forge/maker-deb": "^7.11.2",
+    "@electron-forge/maker-zip": "^7.11.2",
+    "@electron-forge/plugin-vite": "^7.11.2",
+    "@types/node": "^24.0.0",
+    "electron": "^42.5.1",
     "oxfmt": "^0.56.0",
     "oxlint": "^1.71.0",
     "png2icons": "^2.0.1",
     "sharp": "^0.35.2",
-    "typescript": "^5.7.0",
-    "vite": "^6.0.0"
+    "typescript": "7.0.1-rc",
+    "vite": "^8.1.0"
   },
   "packageManager": "pnpm@11.9.0",
   "allowScripts": {
