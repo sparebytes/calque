@@ -9,6 +9,9 @@ export interface ImageSettings {
   scale: number; // 1.0 = 100%
   opacity: number; // 0..1
   hueOffset: number; // 0..360
+  invert: boolean;
+  brightness: number; // 1.0 = 100%
+  saturation: number; // 1.0 = 100%
   x: number; // px
   y: number; // px
 }
@@ -24,6 +27,9 @@ export const defaultSettings = (): ImageSettings => ({
   scale: 1.0,
   opacity: 0.5,
   hueOffset: 0,
+  invert: false,
+  brightness: 1.0,
+  saturation: 1.0,
   x: 0,
   y: 0,
 });

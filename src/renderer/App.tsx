@@ -34,7 +34,7 @@ function overlayStyle(s: ImageSettings, matchDisplayScale: boolean): CSSProperti
   return {
     transform: `translate(${s.x}px, ${s.y}px) scale(${renderScale})`,
     opacity: s.opacity,
-    filter: `hue-rotate(${s.hueOffset}deg)`,
+    filter: `hue-rotate(${s.hueOffset}deg) saturate(${s.saturation}) brightness(${s.brightness}) invert(${s.invert ? 1 : 0})`,
   };
 }
 
@@ -186,7 +186,7 @@ export default function App() {
   );
 
   return (
-    <>
+    <div className="flex flex-col h-screen border border-[rgba(255,255,255,0.2)]">
       <Titlebar
         isMac={isMac}
         panelSide={panelSide}
@@ -199,7 +199,7 @@ export default function App() {
         onMouseDown={onTitlebarMouseDown}
       />
 
-      <div className="flex h-[calc(100vh-32px)] relative">
+      <div className="flex flex-1 min-h-0 relative">
         {panelSide === "left" && panel}
 
         <div className="flex-1 relative bg-transparent overflow-hidden" {...(isMoveMode ? { "data-interactive": "true" } : {})}>
@@ -238,6 +238,6 @@ export default function App() {
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 }

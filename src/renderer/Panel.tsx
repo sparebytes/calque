@@ -149,6 +149,38 @@ export default function Panel({
             numberMax={360}
             onChange={(v) => onUpdateSettings({ hueOffset: v })}
           />
+
+          <label className="flex items-center gap-[7px] mb-3 cursor-pointer">
+            <input
+              type="checkbox"
+              className="accent-[#6378ff] cursor-pointer shrink-0"
+              checked={selected.settings.invert}
+              onChange={(e) => onUpdateSettings({ invert: e.target.checked })}
+            />
+            <span className="text-[11px] text-[rgba(255,255,255,0.6)]">Invert colors</span>
+          </label>
+
+          <Setting
+            label="Brightness"
+            unit="%"
+            value={Math.round(selected.settings.brightness * 100)}
+            sliderMin={0}
+            sliderMax={200}
+            numberMin={0}
+            numberMax={200}
+            onChange={(v) => onUpdateSettings({ brightness: v / 100 })}
+          />
+          <Setting
+            label="Saturation"
+            unit="%"
+            value={Math.round(selected.settings.saturation * 100)}
+            sliderMin={0}
+            sliderMax={200}
+            numberMin={0}
+            numberMax={200}
+            onChange={(v) => onUpdateSettings({ saturation: v / 100 })}
+          />
+
           <Setting
             label="X offset"
             unit="px"
