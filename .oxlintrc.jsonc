@@ -1,0 +1,15 @@
+{
+  // oxlint configuration — https://oxc.rs/docs/guide/usage/formatter.html
+  "$schema": "./node_modules/oxlint@1.72.0/configuration_schema.json",
+  "plugins": ["typescript", "unicorn", "oxc"],
+  "categories": {
+    "correctness": "error",
+  },
+  "env": {
+    "builtin": true,
+    // Electron mixes Node (main/preload) and browser (renderer) globals.
+    "node": true,
+    "browser": true,
+  },
+  "rules": {},
+}

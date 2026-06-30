@@ -1,16 +1,17 @@
 {
   "name": "calque",
-  "productName": "Calque",
   "version": "1.0.0",
+  "private": true,
   "description": "UI mockup overlay tool for developers",
   "main": ".vite/build/main.js",
-  "private": true,
-  "packageManager": "pnpm@11.9.0",
   "scripts": {
     "start": "electron-forge start",
     "build": "pnpm run make-icons && electron-forge make",
     "package": "pnpm run make-icons && electron-forge package",
-    "make-icons": "node scripts/make-icons.mjs"
+    "make-icons": "node scripts/make-icons.mjs",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check",
+    "lint": "oxlint"
   },
   "devDependencies": {
     "@electron-forge/cli": "^7.8.0",
@@ -19,13 +20,17 @@
     "@electron-forge/plugin-vite": "^7.8.0",
     "@types/node": "^22.0.0",
     "electron": "^33.0.0",
+    "oxfmt": "^0.56.0",
+    "oxlint": "^1.71.0",
     "png2icons": "^2.0.1",
     "sharp": "^0.35.2",
     "typescript": "^5.7.0",
     "vite": "^6.0.0"
   },
+  "packageManager": "pnpm@11.9.0",
   "allowScripts": {
     "electron@33.4.11": true,
     "esbuild@0.25.12": true
-  }
+  },
+  "productName": "Calque"
 }

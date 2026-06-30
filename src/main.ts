@@ -95,9 +95,7 @@ function createWindow() {
   if (MAIN_WINDOW_VITE_DEV_SERVER_URL) {
     mainWindow.loadURL(MAIN_WINDOW_VITE_DEV_SERVER_URL);
   } else {
-    mainWindow.loadFile(
-      path.join(__dirname, `../renderer/${MAIN_WINDOW_VITE_NAME}/index.html`)
-    );
+    mainWindow.loadFile(path.join(__dirname, `../renderer/${MAIN_WINDOW_VITE_NAME}/index.html`));
   }
 
   pollTimer = setInterval(pollCursor, 40);
@@ -154,15 +152,11 @@ ipcMain.handle("open-file-dialog", async () => {
   if (!mainWindow) return [];
   const { canceled, filePaths } = await dialog.showOpenDialog(mainWindow, {
     properties: ["openFile", "multiSelections"],
-    filters: [
-      { name: "Images", extensions: ["png", "jpg", "jpeg", "gif", "webp", "bmp", "svg"] },
-    ],
+    filters: [{ name: "Images", extensions: ["png", "jpg", "jpeg", "gif", "webp", "bmp", "svg"] }],
   });
   if (canceled) return [];
   return filePaths.map((p) => ({
     name: path.basename(p),
-    dataUrl: `data:image/${path.extname(p).slice(1).replace("jpg", "jpeg")};base64,${fs
-      .readFileSync(p)
-      .toString("base64")}`,
+    dataUrl: `data:image/${path.extname(p).slice(1).replace("jpg", "jpeg")};base64,${fs.readFileSync(p).toString("base64")}`,
   }));
 });

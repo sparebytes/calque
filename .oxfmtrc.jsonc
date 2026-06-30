@@ -1,0 +1,5 @@
+{
+  // oxfmt configuration — https://oxc.rs/docs/guide/usage/formatter.html
+  "ignorePatterns": [],
+  "printWidth": 130,
+}

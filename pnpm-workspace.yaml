@@ -2,5 +2,9 @@ allowBuilds:
   electron: true
   esbuild: true
   sharp: true
+  "@electron/node-gyp": true
 
 nodeLinker: hoisted
+
+overrides:
+  "@electron/node-gyp": "npm:@electron/node-gyp@10.2.0-electron.1"

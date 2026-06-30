@@ -122,7 +122,7 @@ if (isMac) {
 }
 
 // ── Titlebar drag (manual: works on transparent windows cross-platform) ──
-titlebar.addEventListener("mousedown", e => {
+titlebar.addEventListener("mousedown", (e) => {
   if ((e.target as Element).closest("button")) return;
   isTitlebarDragging = true;
   tbMouseX = e.screenX;
@@ -215,7 +215,7 @@ function addImageEntry(name: string, dataUrl: string) {
 }
 
 function removeImage(id: string) {
-  const idx = images.findIndex(img => img.id === id);
+  const idx = images.findIndex((img) => img.id === id);
   if (idx === -1) return;
   images.splice(idx, 1);
   if (selectedId === id) {
@@ -235,7 +235,7 @@ function selectImage(id: string) {
 }
 
 function getSelected(): ImageEntry | undefined {
-  return images.find(img => img.id === selectedId);
+  return images.find((img) => img.id === selectedId);
 }
 
 // ── Empty state ────────────────────────────────────
@@ -278,7 +278,7 @@ function renderImageList() {
     del.className = "image-delete";
     del.innerHTML = "&#10005;";
     del.title = "Remove";
-    del.addEventListener("click", e => {
+    del.addEventListener("click", (e) => {
       e.stopPropagation();
       removeImage(img.id);
     });
@@ -387,7 +387,7 @@ function setMoveMode(on: boolean) {
 
 btnMove.addEventListener("click", () => setMoveMode(!isMoveMode));
 
-dragHandle.addEventListener("mousedown", e => {
+dragHandle.addEventListener("mousedown", (e) => {
   const img = getSelected();
   if (!img) return;
   isDraggingImage = true;
@@ -400,7 +400,7 @@ dragHandle.addEventListener("mousedown", e => {
 });
 
 // ── Global mouse move/up (titlebar + image drag) ───
-document.addEventListener("mousemove", e => {
+document.addEventListener("mousemove", (e) => {
   if (isTitlebarDragging) {
     window.electronAPI.setWindowPosition(tbWinX + (e.screenX - tbMouseX), tbWinY + (e.screenY - tbMouseY));
     return;
@@ -412,8 +412,8 @@ document.addEventListener("mousemove", e => {
     img.settings.y = imgStartOffsetY + (e.clientY - imgStartY);
     applyImageStyle(img.settings);
     // keep X/Y controls in sync while dragging
-    const cx = controls.find(c => c.key === "x")!;
-    const cy = controls.find(c => c.key === "y")!;
+    const cx = controls.find((c) => c.key === "x")!;
+    const cy = controls.find((c) => c.key === "y")!;
     cx.slider.value = String(Math.round(img.settings.x));
     cx.number.value = String(Math.round(img.settings.x));
     cy.slider.value = String(Math.round(img.settings.y));
